@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html>
    <head>
-       
-   </head> 
-   <body>
-       <!-- Latest compiled and minified CSS -->
+        <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
         
@@ -13,5 +10,8 @@
         
         <!-- Latest compiled JavaScript -->
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+   </head> 
+   <body>
    </body>
 </html>
