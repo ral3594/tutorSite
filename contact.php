@@ -2,29 +2,29 @@
 <html>
    <head>
         <!-- Latest compiled and minified CSS -->
-        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"> -->
+         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"> 
         <!-- Include all compiled plugins (below),
     or include individual files as needed -->
-    	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">	 -->
+    	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">	 
 
         <!-- jQuery library -->
-        <!-- // <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
         
         <!--JQuery DataTables-->
-        <!-- <link rel="stylesheet" href="//cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css" type="text/css" /> -->
+         <link rel="stylesheet" href="//cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css" type="text/css" /> 
         
-        <!-- // <script type="text/javascript" src="//cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script> -->
+        <script type="text/javascript" src="//cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script> 
 
         <link rel="stylesheet" href="contact.css" type="text/css" />
 
 
         <!-- LOCAL TESTING -->
-        <script src="bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
-        <script src="bootstrap-3.3.5-dist/js/bootstrap.js"></script>
+        <!--<script src="bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>-->
+        <!--<script src="bootstrap-3.3.5-dist/js/bootstrap.js"></script>-->
         
         <!-- Bootstrap Core CSS -->
-        <link href="bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet">
-        <link href="bootstrap-3.3.5-dist/css/bootstrap.css" rel="stylesheet">
+        <!--<link href="bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet">-->
+        <!--<link href="bootstrap-3.3.5-dist/css/bootstrap.css" rel="stylesheet">-->
        <!-- /////////////////////////////////////////// -->
         <title> Contact Becca </title>
    </head> 

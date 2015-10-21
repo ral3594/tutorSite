@@ -1,0 +1,19 @@
+p{
+    color: red;
+}
+
+#tableDiv{
+    /*border: 3px solid green;*/
+    margin: 3vh;
+    margin-top: 10vh !important;
+}
+
+td{
+    height: 12vh;
+    
+}
+
+h2{
+    text-align: center;
+    padding: 2vh;
+}

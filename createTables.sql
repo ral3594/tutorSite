@@ -3,6 +3,18 @@
 -- alter table people modify column id integer NOT NULL auto_increment;
 -- MYSQL COMMANDS CMD LINE:
 	-- mysql -u root dbname --> starts db 
+	
+-- Cloud 9 sql
+-- USERNAME = my username (ral3594)
+-- password = NONE
+
+
+-- CONNECT FROM PHP
+--      $servername = getenv('IP');
+--     $username = getenv('C9_USER');
+--     $password = "";
+--     $database = "c9";
+--     $dbport = 3306;
 
 
 -- MONTHS 
