@@ -1,0 +1,20 @@
+h1{
+	text-align: center;
+	padding-top: 10vh;
+	padding-bottom: 6vh;
+}
+
+.inputClass{
+	margin-top: 2vh;
+}
+
+#formDiv{
+	margin-left: 5%;
+	width: 90%;
+}
+
+#submitButtonDiv{
+	text-align: center;
+	/*margin: 4vh;*/
+	margin-bottom: 3%;
+}
