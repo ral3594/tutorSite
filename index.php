@@ -50,88 +50,94 @@
         </nav>
         
         <div id="tableDiv">
-            <h2> OCTOBER </h2>
-            <table id = "example" class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th> Sunday </th>
-                            <th> Monday </th>
-                            <th> Tuesday </th>
-                            <th> Wednesday </th>
-                            <th> Thursday </th>
-                            <th> Friday </th>
-                            <th> Saturday </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!--<tr>-->
-                        <!--    <td> 1 </td>-->
-                        <!--    <td> 2 </td>-->
-                        <!--    <td> 2 </td>-->
-                        <!--    <td> 2 </td>-->
-                        <!--    <td> 2 </td>-->
-                        <!--    <td> 2 </td>-->
-                        <!--    <td> 2 </td>-->
-                        <!--</tr>-->
-                        <!--<tr>-->
-                        <!--    <td> 1 </td>-->
-                        <!--    <td> 2 </td>-->
-                        <!--    <td> 2 </td>-->
-                        <!--    <td> 2 </td>-->
-                        <!--    <td> 2 </td>-->
-                        <!--    <td> 2 </td>-->
-                        <!--    <td> 2 </td>-->
-                        <!--</tr>-->
-                        <!--<tr>-->
-                        <!--    <td> -->
-                        <!--        <ul>-->
-                        <!--            <li>-->
-                        <!--                one-->
-                        <!--            </li>-->
-                        <!--            <li>-->
-                        <!--                two-->
-                        <!--            </li>-->
-                        <!--            <li>-->
-                        <!--                three-->
-                        <!--            </li>-->
-                        <!--            <li>-->
-                        <!--                one-->
-                        <!--            </li>-->
-                        <!--            <li>-->
-                        <!--                two-->
-                        <!--            </li>-->
-                        <!--            <li>-->
-                        <!--                three-->
-                        <!--            </li>-->
-                        <!--        </ul>-->
-                        <!--    </td>-->
-                        <!--    <td> 2 </td>-->
-                        <!--    <td> 2 </td>-->
-                        <!--    <td> 2 </td>-->
-                        <!--    <td> 2 </td>-->
-                        <!--    <td> 2 </td>-->
-                        <!--    <td> 2 </td>-->
-                        <!--</tr>-->
-                        <!--<tr>-->
-                        <!--    <td> 1 </td>-->
-                        <!--    <td> 2 </td>-->
-                        <!--    <td> 2 </td>-->
-                        <!--    <td> 2 </td>-->
-                        <!--    <td> 2 </td>-->
-                        <!--    <td> 2 </td>-->
-                        <!--    <td> 2 </td>-->
-                        <!--</tr>-->
-                        <!--<tr>-->
-                        <!--    <td> 1 </td>-->
-                        <!--    <td> 2 </td>-->
-                        <!--    <td> 2 </td>-->
-                        <!--    <td> 2 </td>-->
-                        <!--    <td> 2 </td>-->
-                        <!--    <td> 2 </td>-->
-                        <!--    <td> 2 </td>-->
-                        <!--</tr>-->
-                    </tbody>
-                </table>
+            <div id="headerDiv">
+                <button id = "prevButton" class="btn btn-default"><</button> 
+                <h2>  </h2> 
+                <button id = "nextButton" class= "btn btn-default">></button>
+            </div>
+            <div class="table-responsive">
+                <table id = "example" class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th> Sunday </th>
+                                <th> Monday </th>
+                                <th> Tuesday </th>
+                                <th> Wednesday </th>
+                                <th> Thursday </th>
+                                <th> Friday </th>
+                                <th> Saturday </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!--<tr>-->
+                            <!--    <td> 1 </td>-->
+                            <!--    <td> 2 </td>-->
+                            <!--    <td> 2 </td>-->
+                            <!--    <td> 2 </td>-->
+                            <!--    <td> 2 </td>-->
+                            <!--    <td> 2 </td>-->
+                            <!--    <td> 2 </td>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                            <!--    <td> 1 </td>-->
+                            <!--    <td> 2 </td>-->
+                            <!--    <td> 2 </td>-->
+                            <!--    <td> 2 </td>-->
+                            <!--    <td> 2 </td>-->
+                            <!--    <td> 2 </td>-->
+                            <!--    <td> 2 </td>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                            <!--    <td> -->
+                            <!--        <ul>-->
+                            <!--            <li>-->
+                            <!--                one-->
+                            <!--            </li>-->
+                            <!--            <li>-->
+                            <!--                two-->
+                            <!--            </li>-->
+                            <!--            <li>-->
+                            <!--                three-->
+                            <!--            </li>-->
+                            <!--            <li>-->
+                            <!--                one-->
+                            <!--            </li>-->
+                            <!--            <li>-->
+                            <!--                two-->
+                            <!--            </li>-->
+                            <!--            <li>-->
+                            <!--                three-->
+                            <!--            </li>-->
+                            <!--        </ul>-->
+                            <!--    </td>-->
+                            <!--    <td> 2 </td>-->
+                            <!--    <td> 2 </td>-->
+                            <!--    <td> 2 </td>-->
+                            <!--    <td> 2 </td>-->
+                            <!--    <td> 2 </td>-->
+                            <!--    <td> 2 </td>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                            <!--    <td> 1 </td>-->
+                            <!--    <td> 2 </td>-->
+                            <!--    <td> 2 </td>-->
+                            <!--    <td> 2 </td>-->
+                            <!--    <td> 2 </td>-->
+                            <!--    <td> 2 </td>-->
+                            <!--    <td> 2 </td>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                            <!--    <td> 1 </td>-->
+                            <!--    <td> 2 </td>-->
+                            <!--    <td> 2 </td>-->
+                            <!--    <td> 2 </td>-->
+                            <!--    <td> 2 </td>-->
+                            <!--    <td> 2 </td>-->
+                            <!--    <td> 2 </td>-->
+                            <!--</tr>-->
+                        </tbody>
+                    </table>
+                </div>
             </div>
    </body>
 </html>

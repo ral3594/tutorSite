@@ -67,3 +67,19 @@ SELECT * FROM years;
 
 -- TEST
 select  w.fullName from weekdays w, years y where y.startDate = w.id and y.startDate = 1;
+
+
+
+-- AVAILABILITY
+CREATE TABLE availability(id integer PRIMARY KEY NOT NULL AUTO_INCREMENT, yr INTEGER, monthNum INTEGER, dayNum INTEGER, timeHours DOUBLE(3,1), FOREIGN KEY (monthNum) REFERENCES months(id));
+
+INSERT INTO availability(yr, monthNum, dayNum, timeHours) VALUES (2015, 10, 22, 10.5);
+INSERT INTO availability(yr, monthNum, dayNum, timeHours) VALUES (2015, 10, 22 , 11);
+INSERT INTO availability(yr, monthNum, dayNum, timeHours) VALUES (2015, 10, 22 , 11.5);
+
+INSERT INTO availability(yr, monthNum, dayNum, timeHours) VALUES (2015, 10, 23, 15);
+INSERT INTO availability(yr, monthNum, dayNum, timeHours) VALUES (2015, 10, 23 , 15.5);
+INSERT INTO availability(yr, monthNum, dayNum, timeHours) VALUES (2015, 10, 23 , 16);
+
+-- Sample query
+SELECT timeHours FROM availability WHERE yr = 2015 AND monthNum = 10 AND dayNum = 22;
