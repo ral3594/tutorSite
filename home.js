@@ -17,6 +17,7 @@ $(document).ready(function() {
 
             var table = $('#example').DataTable();
             var day = "";
+            var numDaysMonth = response[0].numDays;
             $('h2').html(monthNames[d.getMonth()]);
             $.each(response, function(index){
                 day = response[index].message;
@@ -26,7 +27,7 @@ $(document).ready(function() {
             var i = 0;
             
             while (i < day){
-                data += "<td></td>";
+                data += "<td class='empty'></td>";
                 i++;
             }
             
@@ -90,9 +91,18 @@ $(document).ready(function() {
 
             }
             
+            $.each(response, function(index) {
+                var id = response[index].day;
+                $('#'+id).addClass('success');
+            })
+            
+            for (var i = 1; i <= numDaysMonth; i++){
+                if (!($('#'+i).hasClass('success'))){
+                    $('#'+i).addClass('danger');
+                }
+            }
                     
-                    
-        
+            $('.empty').css('background-color', '#EAEAEA');
             // var i = 0;
             // var stringArr = [];
             // while (i < day){
