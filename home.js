@@ -43,21 +43,53 @@ $(document).ready(function() {
             table.row.add($(data)).draw(false);
             
             var daysRemaining = 7-date;
-            
-            // while (daysRemaining <= 31){
+            console.log(daysRemaining);
+            while (daysRemaining <= 31){
                 var newRow = "<tr>"
                 if (daysRemaining + 7 <= 31){
+                    console.log("less than 31");
                     var count = 1;
+                    console.log("count is : " + count);
                     while (count <= 7){
                         var total = daysRemaining + count;
                         var col = "<td id = '" + total + "'>" + total + "</td>";
                         newRow+=col;
                         count++;
                     }
-                    daysRemaining+=7;
                     newRow+="</tr>";
+                    table.row.add($(newRow)).draw(false);
+                    console.log(daysRemaining);
+                    
                 }
-            // }
+                else{
+                    // var newMonth = 1;
+                    // if (daysRemaining + 1 > 31){
+                    //     table.row.add([
+                    //         newMonth,
+                    //         newMonth + 1,
+                    //         newMonth + 2,
+                    //         newMonth + 3,
+                    //         newMonth + 4,
+                    //         newMonth + 5,
+                    //         newMonth + 6
+                    //     ]).draw(false);
+                    // }
+                    // else if (daysRemaining + 2 > 31){
+                    //     table.row.add([
+                    //         daysRemaining + 1,
+                    //         newMonth,
+                    //         newMonth + 1,
+                    //         newMonth + 2,
+                    //         newMonth + 3,
+                    //         newMonth + 4,
+                    //         newMonth + 5
+                    //     ]).draw(false);
+                    // }
+                }
+                daysRemaining = daysRemaining + 7;
+
+            }
+            
                     
                     
         
