@@ -1,13 +1,4 @@
-$(document).ready(function() {
-    $('#example').DataTable({
-        "ordering" : false,
-        "paging" : false
-    });
-    
-    var monthNames = ["JANUARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE", "JULY", "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER"];
-    var d = new Date();
-    
-    
+function getInfoFromDBLoad(d, monthNames){
     $.ajax({
         url: "ajax.php",
         type: "POST",
@@ -175,11 +166,30 @@ $(document).ready(function() {
         }
     })
     
+}
+
+$(document).ready(function() {
+    $('#example').DataTable({
+        "ordering" : false,
+        "paging" : false
+    });
+    
+    var monthNames = ["JANUARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE", "JULY", "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER"];
+    var d = new Date();
+    
+    getInfoFromDBLoad(d, monthNames);
+    
+    
     
     var counter = 1;
     $('#nextButton').click(function(){
         $('h2').html(monthNames[(d.getMonth() + counter)%12]);
+        var newdate = new Date(d.getFullYear(), d.getMonth() + (counter%12), d.getDate());
+        console.log(newdate);
+        // getInfoFromDBLoad(newdate, monthNames);
         counter++;
+        
+        
     });
     
     $('#prevButton').click(function(){
