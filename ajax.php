@@ -13,14 +13,15 @@
         // $db = new mysqli("localhost", "root", "", "Tutor");
         $monthRaw = date('F');
         $month = strtoupper($monthRaw);
-        $year = date('Y');
-        
+        // $year = date('Y');
+        $year = $_POST['year'];
+
         //SQL Statement
         $sql = "SELECT y.startDate, m.numDays, m.id
                 FROM 
                 months m, years y 
                 WHERE 
-                y.monthId = m.id AND m.fullName = '" . $month . "'";
+                y.monthId = m.id AND y.yr = " . $year . " AND m.fullName = '" . $_POST['month'] . "'";
         
         //Query DB
         $result = $db->query($sql);
@@ -33,7 +34,14 @@
 
         //Query to get availability
         $sql = "SELECT timeHours, dayNum FROM availability WHERE yr = " . $year . " AND monthNum = " . $monthID . " AND dayNum < " . $numDays;
+        
         $result = $db->query($sql);
+        if ($result->num_rows == 0){
+            $objects[] = array(
+                'message'=>$startDate,
+                'numDays'=>$numDays
+            );
+        }
         while ($row = $result->fetch_assoc()){
             $objects[] = array(
                 'message'=> $startDate,

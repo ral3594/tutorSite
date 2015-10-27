@@ -1,17 +1,23 @@
 function getInfoFromDBLoad(d, monthNames){
+    console.log(monthNames[d.getMonth()]);
     $.ajax({
         url: "ajax.php",
         type: "POST",
-        data: "action=getInfoFromDB&month=" + monthNames[d.getMonth()],
+        data: "action=getInfoFromDB&month=" + monthNames[d.getMonth()] + "&year=" + d.getFullYear(),
         dataType: "json",
         success: function (response){
-
+            //HANDLE IF NOTHING IS IN RESPONSE
+            if (!response){
+                console.log('empty');
+            }
             var table = $('#example').DataTable();
             var day = "";
             var numDaysMonth = response[0].numDays;
             $('h2').html(monthNames[d.getMonth()]);
+            
             $.each(response, function(index){
                 day = response[index].message;
+                // console.log(day);
             })
 
             var data = "<tr>";
@@ -23,6 +29,7 @@ function getInfoFromDBLoad(d, monthNames){
             }
             
             var i2 = day;
+
             var date = 1;
             while (i2 < 7){
                 var td = "<td id = '" + date + "'>" + date + "</td>";
@@ -31,17 +38,23 @@ function getInfoFromDBLoad(d, monthNames){
                 i2++;
             }
             data+="</tr>";
-            
+            // console.log(data);
             table.row.add($(data)).draw(false);
             
             var daysRemaining = 7-date;
-            console.log(daysRemaining);
+            // console.log(daysRemaining);
+            
+            //Handles starting on a Sunday
+            if (day == 7){
+                daysRemaining = 0;
+            }
+
             while (daysRemaining <= 31){
                 var newRow = "<tr>"
                 if (daysRemaining + 7 <= 31){
-                    console.log("less than 31");
+                    // console.log("less than 31");
                     var count = 1;
-                    console.log("count is : " + count);
+                    // console.log("count is : " + count);
                     while (count <= 7){
                         var total = daysRemaining + count;
                         var col = "<td id = '" + total + "'>" + total + "</td>";
@@ -50,7 +63,7 @@ function getInfoFromDBLoad(d, monthNames){
                     }
                     newRow+="</tr>";
                     table.row.add($(newRow)).draw(false);
-                    console.log(daysRemaining);
+                    // console.log(daysRemaining);
                     
                 }
                 else{
@@ -184,16 +197,24 @@ $(document).ready(function() {
     var counter = 1;
     $('#nextButton').click(function(){
         $('h2').html(monthNames[(d.getMonth() + counter)%12]);
+        console.log(d.getMonth() + (counter%12));
         var newdate = new Date(d.getFullYear(), d.getMonth() + (counter%12), d.getDate());
+        
         console.log(newdate);
-        // getInfoFromDBLoad(newdate, monthNames);
+        var table = $('#example').DataTable();
+        table.clear().draw();
+        getInfoFromDBLoad(newdate, monthNames);
+
+        
         counter++;
         
         
     });
     
     $('#prevButton').click(function(){
-        
-        
+        // DEAL WITH THIS
+        console.log(d.getMonth() + (counter%12));
+        $('h2').html(monthNames[d.getMonth() + (counter%12)]);
+        counter--;
     })
 } );

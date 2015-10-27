@@ -63,6 +63,19 @@ INSERT INTO years(yr, monthId, startDate) VALUES (2015, 10, 4);
 INSERT INTO years(yr, monthId, startDate) VALUES (2015, 11, 7);
 INSERT INTO years(yr, monthId, startDate) VALUES (2015, 12, 2);
 
+
+INSERT INTO years(yr, monthId, startDate) VALUES (2016, 1, 5);
+INSERT INTO years(yr, monthId, startDate) VALUES (2016, 2, 1);
+INSERT INTO years(yr, monthId, startDate) VALUES (2016, 3, 2);
+INSERT INTO years(yr, monthId, startDate) VALUES (2016, 4, 5);
+INSERT INTO years(yr, monthId, startDate) VALUES (2016, 5, 7);
+INSERT INTO years(yr, monthId, startDate) VALUES (2016, 6, 3);
+INSERT INTO years(yr, monthId, startDate) VALUES (2016, 7, 5);
+INSERT INTO years(yr, monthId, startDate) VALUES (2016, 8, 1);
+INSERT INTO years(yr, monthId, startDate) VALUES (2016, 9, 4);
+INSERT INTO years(yr, monthId, startDate) VALUES (2016, 10, 6);
+INSERT INTO years(yr, monthId, startDate) VALUES (2016, 11, 2);
+INSERT INTO years(yr, monthId, startDate) VALUES (2016, 12, 4);
 SELECT * FROM years;
 
 -- TEST
