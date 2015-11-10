@@ -69,7 +69,11 @@
 
             <div class="control-group form-group">
                 <div class="controls" id="date">
-                    <label>Date:</label>
+                    <label>Date: 
+                        <?php 
+                            echo ucwords(strtolower($_GET['month'])) . " " . $_GET['day'] . ", " . $_GET['year']; 
+                        ?>
+                    </label>
                     <p id= "dateDisplay"></p>
                 </div>
             </div>

@@ -98,6 +98,7 @@ function getInfoFromDBLoad(d, monthNames){
             $.each(response, function(index) {
                 var id = response[index].day;
                 $('#'+id).addClass('success');
+                $('#' + id).html('<button class = "dateLinks" id = "b' + id + '">' + id + '</button>');
             })
             
             for (var i = 1; i <= numDaysMonth; i++){
@@ -107,72 +108,7 @@ function getInfoFromDBLoad(d, monthNames){
             }
                     
             $('.empty').css('background-color', '#EAEAEA');
-            // var i = 0;
-            // var stringArr = [];
-            // while (i < day){
-            //     stringArr.push(" ");
-            //     i++;
-            // }
-            // var i2 = day;
-            // var date = 1;
-            // while(i2 < 7){
-            //     stringArr.push(date);
-            //     date++;
-            //     i2++;
-            // }
             
-            // table.row.add( [
-            //     stringArr[0],
-            //     stringArr[1],
-            //     stringArr[2],
-            //     stringArr[3],
-            //     stringArr[4],
-            //     stringArr[5],
-            //     stringArr[6]
-            // ] ).draw( false );
-            
-            
-            // var daysRemaining = 7-date;
-            // while (daysRemaining <= 31){
-            //     if (daysRemaining + 7 <= 31){
-            //         table.row.add([
-            //             daysRemaining + 1,
-            //             daysRemaining + 2,
-            //             daysRemaining + 3,
-            //             daysRemaining + 4,
-            //             daysRemaining + 5,
-            //             daysRemaining + 6,
-            //             daysRemaining + 7
-            //         ]).draw(false);
-            //     }
-                
-            //     else{
-            //         var newMonth = 1;
-            //         if (daysRemaining + 1 > 31){
-            //             table.row.add([
-            //                 newMonth,
-            //                 newMonth + 1,
-            //                 newMonth + 2,
-            //                 newMonth + 3,
-            //                 newMonth + 4,
-            //                 newMonth + 5,
-            //                 newMonth + 6
-            //             ]).draw(false);
-            //         }
-            //         else if (daysRemaining + 2 > 31){
-            //             table.row.add([
-            //                 daysRemaining + 1,
-            //                 newMonth,
-            //                 newMonth + 1,
-            //                 newMonth + 2,
-            //                 newMonth + 3,
-            //                 newMonth + 4,
-            //                 newMonth + 5
-            //             ]).draw(false);
-            //         }
-            //     }
-            //     daysRemaining = daysRemaining + 7;
-            // }
         },
         error: function(){
             alert('error');
@@ -193,6 +129,19 @@ $(document).ready(function() {
     getInfoFromDBLoad(d, monthNames);
     
     
+    $('#example').on('click', '.dateLinks', function(event){
+        
+        
+        var date = this.id;
+        date = date.slice(1);
+
+        
+        // var parameter = decodeURIComponent( $.param( dateObject ));
+        // a[one]=1&a[two]=2&a[three]=3&b[]=1&b[]=2&b[]=3
+        window.location = "https://tutorsite-ral3594.c9.io/appt.php?day=" + date + "&month="+ monthNames[d.getMonth()] + "&year=" + d.getFullYear(); ;
+        
+    });
+    
     
     var counter = 1;
     $('#nextButton').click(function(){
@@ -210,11 +159,23 @@ $(document).ready(function() {
         
         
     });
+
     
     $('#prevButton').click(function(){
         // DEAL WITH THIS
-        console.log(d.getMonth() + (counter%12));
-        $('h2').html(monthNames[d.getMonth() + (counter%12)]);
-        counter--;
-    })
+        
+        // console.log(d.getMonth() - (counter%12));
+        
+       console.log(monthNames[Math.abs(d.getMonth() - (counter%12))]);
+       console.log(Math.abs(d.getMonth() - counter)%12);
+        // $('h2').html(monthNames[d.getMonth() - (counter%12)]);
+        $('h2').html(monthNames[Math.abs(d.getMonth() - counter)%12]);
+        console.log('counter: ' +  counter%12);
+        counter++;
+    });
+    
+        
+    
+    
 } );
+

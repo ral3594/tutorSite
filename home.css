@@ -28,3 +28,19 @@ h2{
     text-align: center;
     display: inline;
 }
+
+.dateLinks:hover{
+    text-decoration: none;
+}
+
+.dateLinks{
+    display: inline-block;
+    /*height: 100%;*/
+    /*width: 100%;*/
+    padding-left: 0;
+    padding-right: 90%;
+    padding-bottom:50%;
+    background-color: transparent;
+    text-align: left;
+    border: none;
+}
