@@ -18,3 +18,7 @@ h1{
 	/*margin: 4vh;*/
 	margin-bottom: 3%;
 }
+
+#dateDisplay{
+	display: inline-block;
+}

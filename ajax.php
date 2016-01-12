@@ -53,6 +53,42 @@
         $response = json_encode($objects);
         echo $response;
     }
+    
+    if ($_POST['action']=='getStartTimes'){
+        // echo json_encode($_POST['month'] . " " . $_POST['day'] . " " . $_POST['year']);
+        
+        $month = $_POST['month'];
+        $day = $_POST['day'];
+        $year = $_POST['year'];
+        
+        $servername = getenv('IP');
+        $username = getenv('C9_USER');
+        $password = "";
+        $database = "Tutor";
+        $dbport = 3306;
+
+        // Create connection
+        $db = new mysqli($servername, $username, $password, $database, $dbport);
+        
+        $sql = "SELECT id FROM months where fullName = '" . $month . "'";
+        
+        $result = $db->query($sql);
+        $row = $result-> fetch_assoc();
+        $monthNum = $row['id'];
+        
+        
+        $sql = "SELECT timeHours FROM availability WHERE yr = " . $year . " AND monthNum = " . $monthNum . " AND dayNum = " . $day; 
+        
+        $result = $db->query($sql);
+        
+        while ($row = $result->fetch_assoc()){
+            $objects[] = array(
+                'startTime'=> $row['timeHours']
+            );
+        }
+        
+        echo json_encode($objects);
+    }
 
 ?>
 

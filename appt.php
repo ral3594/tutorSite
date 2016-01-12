@@ -15,6 +15,9 @@
         
          <script type="text/javascript" src="//cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script> 
 
+
+         <script type="text/javascript" src="appt.js"></script> 
+
         <link rel="stylesheet" href="appt.css" type="text/css" />
 
 
@@ -70,11 +73,12 @@
             <div class="control-group form-group">
                 <div class="controls" id="date">
                     <label>Date: 
-                        <?php 
+                    </label>
+                    <p id= "dateDisplay">
+                    <?php 
                             echo ucwords(strtolower($_GET['month'])) . " " . $_GET['day'] . ", " . $_GET['year']; 
                         ?>
-                    </label>
-                    <p id= "dateDisplay"></p>
+                    </p>
                 </div>
             </div>
 
@@ -82,13 +86,13 @@
                 <div class="controls">
                     <label>What class do you need help with? </label>
                     <select class="form-control" id="classOption" required data-validation-required-message="Please enter your phone number.">
-                        <option selected> Choose A Class </option>
-                        <option> Stats 250 </option>
-                        <option> EECS 183 </option>
-                        <option> EECS 280 </option>
-                        <option> ENGR 101 </option>
-                        <option> SI 106 </option>
-                        <option> SI 206 </option>
+                        <option selected value = "0"> Choose A Class </option>
+                        <option value = "250"> Stats 250 </option>
+                        <option value = "183"> EECS 183 </option>
+                        <option value = "280"> EECS 280 </option>
+                        <option value = "101"> ENGR 101 </option>
+                        <option value = "106"> SI 106 </option>
+                        <option value = "206"> SI 206 </option>
                     </select>
                 </div>
             </div>
@@ -97,7 +101,7 @@
                 <div class="controls">
                     <label>Please Choose a Start Time: </label>
                     <select class="form-control" id="startTime" required data-validation-required-message="Please enter your phone number.">
-                        <option selected> Choose A Start Time </option>
+                        <option id="default" value = "0" selected> Choose A Start Time </option>
                     </select>
                 </div>
             </div>

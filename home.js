@@ -102,6 +102,7 @@ function getInfoFromDBLoad(d, monthNames){
             })
             
             for (var i = 1; i <= numDaysMonth; i++){
+                console.log($('#'+i).html());
                 if (!($('#'+i).hasClass('success'))){
                     $('#'+i).addClass('danger');
                 }
@@ -143,19 +144,30 @@ $(document).ready(function() {
     });
     
     
-    var counter = 1;
+    // var coun/ter = 1;
     $('#nextButton').click(function(){
-        $('h2').html(monthNames[(d.getMonth() + counter)%12]);
-        console.log(d.getMonth() + (counter%12));
-        var newdate = new Date(d.getFullYear(), d.getMonth() + (counter%12), d.getDate());
+        
+        var index = 0;
+        var currMonth = $('h2').html();
+        if (monthNames.indexOf(currMonth) != -1){
+            index = monthNames.indexOf(currMonth);
+            index++;
+            if (index > 12){
+                index = 0;
+            }
+            $('h2').html(monthNames[index]);
+        }
+        // $('h2').html(monthNames[(d.getMonth() + counter)%12]);
+        // console.log((d.getMonth()%12) + (counter));
+        var newdate = new Date(d.getFullYear(), index, d.getDate());
         
         console.log(newdate);
         var table = $('#example').DataTable();
-        table.clear().draw();
         getInfoFromDBLoad(newdate, monthNames);
+        table.clear().draw();
 
         
-        counter++;
+        // counter++;
         
         
     });
@@ -163,15 +175,46 @@ $(document).ready(function() {
     
     $('#prevButton').click(function(){
         // DEAL WITH THIS
+        // console.log(counter);
+        // console.log(d.getMonth());
+        // // console.log(d.getMonth() - (counter%12));
+        // var ndate = (d.getMonth()%12) - (counter%12);
+        // console.log(ndate);
+        // if (ndate < 0){
+        //     // $('h2').html(monthNames[12-(counter%12)]);
+        //     $('h2').html(monthNames[12-(counter%12)]);
+        //     console.log(monthNames[12-(counter%12)]);
+        //     console.log(12-(counter%12));
+            
+            
+        // }
+        var index = 0;
+        var currMonth = $('h2').html();
+        if (monthNames.indexOf(currMonth) != -1){
+            index = monthNames.indexOf(currMonth);
+            index--;
+            if (index < 0){
+                index = 11;
+            }
+            $('h2').html(monthNames[index]);
+        }
+
+        var newdate = new Date(d.getFullYear(), index, d.getDate());
         
-        // console.log(d.getMonth() - (counter%12));
+        console.log(newdate);
+        var table = $('#example').DataTable();
+        getInfoFromDBLoad(newdate, monthNames);
+        table.clear().draw();
+
         
-       console.log(monthNames[Math.abs(d.getMonth() - (counter%12))]);
-       console.log(Math.abs(d.getMonth() - counter)%12);
+    //   console.log(monthNames[Math.abs(d.getMonth() - (counter%12))]);
+    //   console.log(Math.abs(d.getMonth() - counter)%12);
         // $('h2').html(monthNames[d.getMonth() - (counter%12)]);
-        $('h2').html(monthNames[Math.abs(d.getMonth() - counter)%12]);
-        console.log('counter: ' +  counter%12);
-        counter++;
+        // $('h2').html(monthNames[Math.abs(d.getMonth() - counter)%12]);
+        // $('h2').html(monthNames[Math.abs((d.getMonth()%12) - counter)]);
+
+        // console.log('counter: ' +  counter%12);
+        // counter++;
     });
     
         

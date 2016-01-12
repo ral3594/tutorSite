@@ -76,6 +76,7 @@ INSERT INTO years(yr, monthId, startDate) VALUES (2016, 9, 4);
 INSERT INTO years(yr, monthId, startDate) VALUES (2016, 10, 6);
 INSERT INTO years(yr, monthId, startDate) VALUES (2016, 11, 2);
 INSERT INTO years(yr, monthId, startDate) VALUES (2016, 12, 4);
+
 SELECT * FROM years;
 
 -- TEST
