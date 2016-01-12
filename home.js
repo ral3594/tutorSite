@@ -144,7 +144,6 @@ $(document).ready(function() {
     });
     
     
-    // var coun/ter = 1;
     $('#nextButton').click(function(){
         
         var index = 0;
@@ -157,8 +156,6 @@ $(document).ready(function() {
             }
             $('h2').html(monthNames[index]);
         }
-        // $('h2').html(monthNames[(d.getMonth() + counter)%12]);
-        // console.log((d.getMonth()%12) + (counter));
         var newdate = new Date(d.getFullYear(), index, d.getDate());
         
         console.log(newdate);
@@ -167,27 +164,11 @@ $(document).ready(function() {
         table.clear().draw();
 
         
-        // counter++;
-        
-        
     });
 
     
     $('#prevButton').click(function(){
-        // DEAL WITH THIS
-        // console.log(counter);
-        // console.log(d.getMonth());
-        // // console.log(d.getMonth() - (counter%12));
-        // var ndate = (d.getMonth()%12) - (counter%12);
-        // console.log(ndate);
-        // if (ndate < 0){
-        //     // $('h2').html(monthNames[12-(counter%12)]);
-        //     $('h2').html(monthNames[12-(counter%12)]);
-        //     console.log(monthNames[12-(counter%12)]);
-        //     console.log(12-(counter%12));
-            
-            
-        // }
+        
         var index = 0;
         var currMonth = $('h2').html();
         if (monthNames.indexOf(currMonth) != -1){
@@ -206,15 +187,7 @@ $(document).ready(function() {
         getInfoFromDBLoad(newdate, monthNames);
         table.clear().draw();
 
-        
-    //   console.log(monthNames[Math.abs(d.getMonth() - (counter%12))]);
-    //   console.log(Math.abs(d.getMonth() - counter)%12);
-        // $('h2').html(monthNames[d.getMonth() - (counter%12)]);
-        // $('h2').html(monthNames[Math.abs(d.getMonth() - counter)%12]);
-        // $('h2').html(monthNames[Math.abs((d.getMonth()%12) - counter)]);
 
-        // console.log('counter: ' +  counter%12);
-        // counter++;
     });
     
         
