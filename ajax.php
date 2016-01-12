@@ -89,7 +89,17 @@
         
         echo json_encode($objects);
     }
-
+    
+    if ($_POST['action']=='sendEmail'){
+        $headers = "From: " . $_POST['email'];
+        $val = mail("raless@umich.edu", "Tutoring Message From: " . $_POST['name'], $_POST['message'], $headers);
+        if ($val == true){
+            echo json_encode("success");
+        }
+        else{
+            echo json_encode("failure");
+        }
+    }
 ?>
 
 

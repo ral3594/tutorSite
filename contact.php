@@ -16,6 +16,7 @@
         <script type="text/javascript" src="//cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script> 
 
         <link rel="stylesheet" href="contact.css" type="text/css" />
+         <script type="text/javascript" src="contact.js"></script> 
 
 
         <!-- LOCAL TESTING -->
@@ -61,7 +62,7 @@
                 <div class="control-group form-group">
                     <div class="controls" id= "name">
                         <label>Full Name:</label>
-                        <input name = "name" type="text" class="form-control" id="name" required data-validation-required-message="Please enter your name.">
+                        <input name = "name" type="text" class="form-control" id="nameBox" required data-validation-required-message="Please enter your name.">
                         <p class="help-block"></p>
                     </div>
                 </div>
@@ -69,14 +70,14 @@
                 <div class="control-group form-group">
                     <div class="controls" id="email">
                         <label>Email Address:</label>
-                        <input type="email" name ="email" class="form-control" id="email" required data-validation-required-message="Please enter your email address.">
+                        <input type="email" name ="email" class="form-control" id="emailBox" required data-validation-required-message="Please enter your email address.">
                     </div>
                 </div>
 
                 <div class="control-group form-group">
                     <div class="controls" id="message">
                         <label>Message:</label>
-                        <textarea rows="10" cols="100" class="form-control" id="message" name = "message" required data-validation-required-message="Please enter your message" maxlength="999" style="resize:none"></textarea>
+                        <textarea rows="10" cols="100" class="form-control" id="messageBox" name = "message" required data-validation-required-message="Please enter your message" maxlength="999" style="resize:none"></textarea>
                     </div>
                 </div>
 
