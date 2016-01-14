@@ -36,9 +36,9 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a class="page-scroll" href="appt.php">Schedule an Appointment</a>
-                        </li>
+                        <!--<li>-->
+                        <!--    <a class="page-scroll" href="appt.php">Schedule an Appointment</a>-->
+                        <!--</li>-->
                         <li>
                             <a class="page-scroll" href="contact.php">Contact Becca</a>
                         </li>
@@ -69,72 +69,6 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <!--<tr>-->
-                            <!--    <a id = "link" href = "appt.php"><td> yo </td></a>-->
-                            <!--    <td> Hi </td>-->
-                            <!--    <td> Hi </td>-->
-                            <!--    <td> Hi </td>-->
-                            <!--    <td> Hi </td>-->
-                            <!--    <td> Hi </td>-->
-                            <!--    <td> Hi </td>-->
-                            <!--</tr>-->
-                            <!--<tr>-->
-                            <!--    <td> 1 </td>-->
-                            <!--    <td> 2 </td>-->
-                            <!--    <td> 2 </td>-->
-                            <!--    <td> 2 </td>-->
-                            <!--    <td> 2 </td>-->
-                            <!--    <td> 2 </td>-->
-                            <!--    <td> 2 </td>-->
-                            <!--</tr>-->
-                            <!--<tr>-->
-                            <!--    <td> -->
-                            <!--        <ul>-->
-                            <!--            <li>-->
-                            <!--                one-->
-                            <!--            </li>-->
-                            <!--            <li>-->
-                            <!--                two-->
-                            <!--            </li>-->
-                            <!--            <li>-->
-                            <!--                three-->
-                            <!--            </li>-->
-                            <!--            <li>-->
-                            <!--                one-->
-                            <!--            </li>-->
-                            <!--            <li>-->
-                            <!--                two-->
-                            <!--            </li>-->
-                            <!--            <li>-->
-                            <!--                three-->
-                            <!--            </li>-->
-                            <!--        </ul>-->
-                            <!--    </td>-->
-                            <!--    <td> 2 </td>-->
-                            <!--    <td> 2 </td>-->
-                            <!--    <td> 2 </td>-->
-                            <!--    <td> 2 </td>-->
-                            <!--    <td> 2 </td>-->
-                            <!--    <td> 2 </td>-->
-                            <!--</tr>-->
-                            <!--<tr>-->
-                            <!--    <td> 1 </td>-->
-                            <!--    <td> 2 </td>-->
-                            <!--    <td> 2 </td>-->
-                            <!--    <td> 2 </td>-->
-                            <!--    <td> 2 </td>-->
-                            <!--    <td> 2 </td>-->
-                            <!--    <td> 2 </td>-->
-                            <!--</tr>-->
-                            <!--<tr>-->
-                            <!--    <td> 1 </td>-->
-                            <!--    <td> 2 </td>-->
-                            <!--    <td> 2 </td>-->
-                            <!--    <td> 2 </td>-->
-                            <!--    <td> 2 </td>-->
-                            <!--    <td> 2 </td>-->
-                            <!--    <td> 2 </td>-->
-                            <!--</tr>-->
                         </tbody>
                     </table>
                 </div>

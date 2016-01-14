@@ -28,6 +28,7 @@ function getInfoFromDBLoad(d, monthNames){
                 i++;
             }
             
+            
             var i2 = day;
 
             var date = 1;
@@ -37,12 +38,14 @@ function getInfoFromDBLoad(d, monthNames){
                 date++;
                 i2++;
             }
+            // console.log("date " + date);
+            // console.log(i2);
             data+="</tr>";
             // console.log(data);
             table.row.add($(data)).draw(false);
             
             var daysRemaining = 7-date;
-            // console.log(daysRemaining);
+            console.log(daysRemaining);
             
             //Handles starting on a Sunday
             if (day == 7){
@@ -52,7 +55,10 @@ function getInfoFromDBLoad(d, monthNames){
             while (daysRemaining <= 31){
                 var newRow = "<tr>"
                 if (daysRemaining + 7 <= 31){
-                    // console.log("less than 31");
+                    // DEAL WITH EXTRA DATES...THIS FIXES IF daysRemaining IS 0
+                    if (daysRemaining == 0){
+                        daysRemaining = 6;
+                    }
                     var count = 1;
                     // console.log("count is : " + count);
                     while (count <= 7){
@@ -102,7 +108,7 @@ function getInfoFromDBLoad(d, monthNames){
             })
             
             for (var i = 1; i <= numDaysMonth; i++){
-                console.log($('#'+i).html());
+                // console.log($('#'+i).html());
                 if (!($('#'+i).hasClass('success'))){
                     $('#'+i).addClass('danger');
                 }
