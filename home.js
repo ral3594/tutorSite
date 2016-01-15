@@ -72,47 +72,42 @@ function getInfoFromDBLoad(d, monthNames){
 
                     table.row.add($(newRow)).draw(false);
                     
-                    
-                    if (date === totDays){
-                        console.log("hit here");
-                        var row = "<tr>";
-                        var tempCol = "<td> id = '" + date + "'>" + date + "</td>";
-                        row += tempCol;
-                        var i = 0;
-                        while (i < 6){
-                            row += "<td class='empty'></td>";
-                        }
-                        row += "</tr>"
-                        table.row.add($(row)).draw(false);
-                    }
+                    console.log("end date: " + date);
+                    // if (date === totDays){
+                    //     console.log("hit here");
+                    //     var row = "<tr>";
+                    //     var tempCol = "<td> id = '" + date + "'>" + date + "</td>";
+                    //     row += tempCol;
+                    //     var i = 0;
+                    //     while (i < 6){
+                    //         row += "<td class='empty'></td>";
+                    //     }
+                    //     row += "</tr>"
+                    //     table.row.add($(row)).draw(false);
+                    // }
                 }
                 else{
-                    console.log(date);
+                    // console.log(date);
+                    console.log("HERE");
                     var dLeft = totDays - date;
-                    console.log(dLeft);
-                    // var newMonth = 1;
-                    // if (daysRemaining + 1 > 31){
-                    //     table.row.add([
-                    //         newMonth,
-                    //         newMonth + 1,
-                    //         newMonth + 2,
-                    //         newMonth + 3,
-                    //         newMonth + 4,
-                    //         newMonth + 5,
-                    //         newMonth + 6
-                    //     ]).draw(false);
-                    // }
-                    // else if (daysRemaining + 2 > 31){
-                    //     table.row.add([
-                    //         daysRemaining + 1,
-                    //         newMonth,
-                    //         newMonth + 1,
-                    //         newMonth + 2,
-                    //         newMonth + 3,
-                    //         newMonth + 4,
-                    //         newMonth + 5
-                    //     ]).draw(false);
-                    // }
+                    var i = 0;
+                    var row = "<tr>";
+                    while (i <= dLeft){
+                        var cd = i + date;
+                        var tempCol = "<td id='" + cd + "'>" + cd + "</td>";
+                        row += tempCol;
+                        i++;
+                    }
+                    console.log(row);
+                    var rem = 7 - dLeft;
+                    rem--;
+                    while (rem > 0){
+                        row += "<td class='empty'></td>";
+                        rem--;
+                    }
+                    row += "</tr>";
+                    table.row.add($(row)).draw(false);
+                    
                 }
                 date = date + 7;
 
