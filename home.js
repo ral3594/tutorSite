@@ -12,12 +12,15 @@ function getInfoFromDBLoad(d, monthNames){
             }
             var table = $('#example').DataTable();
             var day = "";
+            var totDays = "";
             var numDaysMonth = response[0].numDays;
             $('h2').html(monthNames[d.getMonth()]);
             
             $.each(response, function(index){
                 day = response[index].message;
                 // console.log(day);
+                totDays = response[index].numDays;
+                // console.log(totDays);
             })
 
             var data = "<tr>";
@@ -43,36 +46,53 @@ function getInfoFromDBLoad(d, monthNames){
             data+="</tr>";
             // console.log(data);
             table.row.add($(data)).draw(false);
-            
+            console.log(date);
             var daysRemaining = 7-date;
-            console.log(daysRemaining);
+            // console.log(daysRemaining);
             
             //Handles starting on a Sunday
             if (day == 7){
                 daysRemaining = 0;
             }
 
-            while (daysRemaining <= 31){
+            while (daysRemaining <= totDays){
                 var newRow = "<tr>"
-                if (daysRemaining + 7 <= 31){
+                if (date + 7 <= totDays){
+                    // console.log("date + 7: " + date + 7);
+                    // console.log(date);
                     // DEAL WITH EXTRA DATES...THIS FIXES IF daysRemaining IS 0
-                    if (daysRemaining == 0){
-                        daysRemaining = 6;
-                    }
-                    var count = 1;
+                    // console.log("dr: " + daysRemaining);
+                    // if (daysRemaining == 0){
+                    //     daysRemaining = 6;
+                    // }
+                    var count = 0;
+                    
+                    // if (daysRemaining < 7){
+                    //     daysRemaining = 6 - daysRemaining;
+                    // }
+                    
                     // console.log("count is : " + count);
-                    while (count <= 7){
-                        var total = daysRemaining + count;
+                    while (count < 7){
+                        // var total = daysRemaining + count;
+                        // console.log("total: " + total);
+                        // console.log("startdate: " + startdate);
+                        // var total = startdate + count;
+                        var total = date + count;
+                        console.log(total);
                         var col = "<td id = '" + total + "'>" + total + "</td>";
                         newRow+=col;
                         count++;
                     }
                     newRow+="</tr>";
+                    date = date + 7;
                     table.row.add($(newRow)).draw(false);
-                    // console.log(daysRemaining);
+                    
                     
                 }
                 else{
+                    console.log(date);
+                    var dLeft = totDays - date;
+                    console.log(dLeft);
                     // var newMonth = 1;
                     // if (daysRemaining + 1 > 31){
                     //     table.row.add([
