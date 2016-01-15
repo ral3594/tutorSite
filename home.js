@@ -18,43 +18,42 @@ function getInfoFromDBLoad(d, monthNames){
             
             $.each(response, function(index){
                 day = response[index].message;
-                // console.log(day);
                 totDays = response[index].numDays;
-                // console.log(totDays);
             })
 
             var data = "<tr>";
-            var i = 0;
-            
-            while (i < day){
-                data += "<td class='empty'></td>";
-                i++;
-            }
-            
-            
-            var i2 = day;
 
-            var date = 1;
-            while (i2 < 7){
-                var td = "<td id = '" + date + "'>" + date + "</td>";
-                data+=td;
-                date++;
-                i2++;
-            }
-            // console.log("date " + date);
-            // console.log(i2);
-            data+="</tr>";
-            // console.log(data);
-            table.row.add($(data)).draw(false);
-            console.log(date);
-            var daysRemaining = 7-date;
-            // console.log(daysRemaining);
+
+            if (day != 7){
+                var i = 0;
+                while (i < day){
+                    data += "<td class='empty'></td>";
+                    i++;
+                }
             
-            //Handles starting on a Sunday
-            if (day == 7){
-                daysRemaining = 0;
+                var i2 = day;
+                console.log(i2);
+
+                var date = 1;
+                while (i2 < 7){
+                    var td = "<td id = '" + date + "'>" + date + "</td>";
+                    data+=td;
+                    date++;
+                    i2++;
+                }
+                
+                data+="</tr>";
+
+                table.row.add($(data)).draw(false);
             }
-            // date = date - 1;
+            console.log("here2");
+            // var daysRemaining = 7-date;
+            
+            // //Handles starting on a Sunday
+            // if (day == 7){
+            //     daysRemaining = 0;
+            // }
+            
             while (date <= totDays){
                 var newRow = "<tr>"
                 if (date + 7 <= totDays){
@@ -63,7 +62,6 @@ function getInfoFromDBLoad(d, monthNames){
                 
                     while (count < 7){
                         var total = date + count;
-                        // console.log(total);
                         var col = "<td id = '" + total + "'>" + total + "</td>";
                         newRow+=col;
                         count++;
@@ -72,23 +70,9 @@ function getInfoFromDBLoad(d, monthNames){
 
                     table.row.add($(newRow)).draw(false);
                     
-                    console.log("end date: " + date);
-                    // if (date === totDays){
-                    //     console.log("hit here");
-                    //     var row = "<tr>";
-                    //     var tempCol = "<td> id = '" + date + "'>" + date + "</td>";
-                    //     row += tempCol;
-                    //     var i = 0;
-                    //     while (i < 6){
-                    //         row += "<td class='empty'></td>";
-                    //     }
-                    //     row += "</tr>"
-                    //     table.row.add($(row)).draw(false);
-                    // }
                 }
                 else{
                     // console.log(date);
-                    console.log("HERE");
                     var dLeft = totDays - date;
                     var i = 0;
                     var row = "<tr>";
