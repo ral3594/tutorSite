@@ -54,40 +54,37 @@ function getInfoFromDBLoad(d, monthNames){
             if (day == 7){
                 daysRemaining = 0;
             }
-
-            while (daysRemaining <= totDays){
+            // date = date - 1;
+            while (date <= totDays){
                 var newRow = "<tr>"
                 if (date + 7 <= totDays){
-                    // console.log("date + 7: " + date + 7);
-                    // console.log(date);
-                    // DEAL WITH EXTRA DATES...THIS FIXES IF daysRemaining IS 0
-                    // console.log("dr: " + daysRemaining);
-                    // if (daysRemaining == 0){
-                    //     daysRemaining = 6;
-                    // }
+                    
                     var count = 0;
-                    
-                    // if (daysRemaining < 7){
-                    //     daysRemaining = 6 - daysRemaining;
-                    // }
-                    
-                    // console.log("count is : " + count);
+                
                     while (count < 7){
-                        // var total = daysRemaining + count;
-                        // console.log("total: " + total);
-                        // console.log("startdate: " + startdate);
-                        // var total = startdate + count;
                         var total = date + count;
-                        console.log(total);
+                        // console.log(total);
                         var col = "<td id = '" + total + "'>" + total + "</td>";
                         newRow+=col;
                         count++;
                     }
                     newRow+="</tr>";
-                    date = date + 7;
+
                     table.row.add($(newRow)).draw(false);
                     
                     
+                    if (date === totDays){
+                        console.log("hit here");
+                        var row = "<tr>";
+                        var tempCol = "<td> id = '" + date + "'>" + date + "</td>";
+                        row += tempCol;
+                        var i = 0;
+                        while (i < 6){
+                            row += "<td class='empty'></td>";
+                        }
+                        row += "</tr>"
+                        table.row.add($(row)).draw(false);
+                    }
                 }
                 else{
                     console.log(date);
@@ -117,7 +114,7 @@ function getInfoFromDBLoad(d, monthNames){
                     //     ]).draw(false);
                     // }
                 }
-                daysRemaining = daysRemaining + 7;
+                date = date + 7;
 
             }
             
