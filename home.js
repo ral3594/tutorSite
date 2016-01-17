@@ -23,7 +23,7 @@ function getInfoFromDBLoad(d, monthNames){
 
             var data = "<tr>";
 
-
+            var date = 1;
             if (day != 7){
                 var i = 0;
                 while (i < day){
@@ -34,7 +34,7 @@ function getInfoFromDBLoad(d, monthNames){
                 var i2 = day;
                 console.log(i2);
 
-                var date = 1;
+                
                 while (i2 < 7){
                     var td = "<td id = '" + date + "'>" + date + "</td>";
                     data+=td;
@@ -46,7 +46,6 @@ function getInfoFromDBLoad(d, monthNames){
 
                 table.row.add($(data)).draw(false);
             }
-            console.log("here2");
             // var daysRemaining = 7-date;
             
             // //Handles starting on a Sunday
@@ -54,7 +53,9 @@ function getInfoFromDBLoad(d, monthNames){
             //     daysRemaining = 0;
             // }
             
+            console.log(date);
             while (date <= totDays){
+                console.log("aqui");
                 var newRow = "<tr>"
                 if (date + 7 <= totDays){
                     
