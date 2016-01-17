@@ -19,11 +19,33 @@ function loadStartTimes(){
                 // console.log(response[index].startTime%1);
                 if ((response[index].startTime)%1 != 0){
                     // console.log(response[index].startTime);
+                    var aorp = 0;
                     var hour = response[index].startTime - .5;
-                    time = hour + ":30 AM"; 
+                    if (hour > 12){
+                        hour = hour - 12;
+                        aorp = 1;
+                    }
+                    if (aorp == 0){
+                        time = hour + ":30 AM"; 
+                    }
+                    else{
+                        time = hour + ":30 PM";
+                    }
                 } 
                 else{
-                    time = Math.ceil(response[index].startTime) + " AM";
+                    var ap = 0;
+                    var hr = Math.ceil(response[index].startTime);
+                    if (hr > 12){
+                        hr = hr - 12;
+                        ap = 1;
+                    }
+                    if (ap === 0){
+                        time = hr + " AM";
+                    }
+                    else{
+                        time = hr + " PM";
+                    }
+                    
                 }
                 $('#startTime').append($('<option>', { 
                     value: index + 1,
