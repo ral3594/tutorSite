@@ -32,7 +32,6 @@ function getInfoFromDBLoad(d, monthNames){
                 }
             
                 var i2 = day;
-                console.log(i2);
 
                 
                 while (i2 < 7){
@@ -53,9 +52,7 @@ function getInfoFromDBLoad(d, monthNames){
             //     daysRemaining = 0;
             // }
             
-            console.log(date);
             while (date <= totDays){
-                console.log("aqui");
                 var newRow = "<tr>"
                 if (date + 7 <= totDays){
                     
@@ -83,7 +80,6 @@ function getInfoFromDBLoad(d, monthNames){
                         row += tempCol;
                         i++;
                     }
-                    console.log(row);
                     var rem = 7 - dLeft;
                     rem--;
                     while (rem > 0){
@@ -129,6 +125,7 @@ $(document).ready(function() {
     
     var monthNames = ["JANUARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE", "JULY", "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER"];
     var d = new Date();
+    var year = d.getFullYear();
     
     getInfoFromDBLoad(d, monthNames);
     
@@ -154,12 +151,17 @@ $(document).ready(function() {
         if (monthNames.indexOf(currMonth) != -1){
             index = monthNames.indexOf(currMonth);
             index++;
-            if (index > 12){
+            if (index >= 12){
                 index = 0;
             }
             $('h2').html(monthNames[index]);
         }
-        var newdate = new Date(d.getFullYear(), index, d.getDate());
+
+        if (index == 0){
+            year++;
+        }
+        
+        var newdate = new Date(year, index, d.getDate());
         
         console.log(newdate);
         var table = $('#example').DataTable();
@@ -182,8 +184,12 @@ $(document).ready(function() {
             }
             $('h2').html(monthNames[index]);
         }
+        
+        if (index == 11){
+            year--;
+        }
 
-        var newdate = new Date(d.getFullYear(), index, d.getDate());
+        var newdate = new Date(year, index, d.getDate());
         
         console.log(newdate);
         var table = $('#example').DataTable();
