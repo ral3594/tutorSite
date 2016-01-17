@@ -34,7 +34,7 @@ function loadStartTimes(){
             
             var length = response.length;
             if (length >= 0){
-                var totalTime = response[length - 1].startTime - response[0].startTime;
+                var totalTime = response[length - 1].startTime - response[0].startTime + .5;
                 var tracker = 0;
                 for (var i = .5; i <= totalTime; i = i + .5){
                     var textVal = "";

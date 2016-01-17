@@ -87,6 +87,7 @@
             );
         }
         
+        array_pop($objects);
         echo json_encode($objects);
     }
     
