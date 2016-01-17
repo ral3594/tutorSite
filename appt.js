@@ -62,6 +62,19 @@ function loadStartTimes(){
 $(document).ready(function(){
    loadStartTimes();
    
+    // $('#startTime option[value="4"]').hide()   
+    var length = $('#startTime option').length;
+    length--;
+    
+    if (length != 1 || length != 0){
+        console.log("here");
+        while (length != 0){
+            if ($('startTime').val() == length){
+                $('#duration option[value="'+length+'"]').hide();
+            }
+        }
+    }
+    
    $('#submit').click(function(e){
        e.preventDefault();
        var email = $('#email').val();
@@ -72,4 +85,6 @@ $(document).ready(function(){
            alert('valid email');
        }
    })
+   
+   
 });
