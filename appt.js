@@ -6,7 +6,7 @@ function loadStartTimes(){
         var temp = parts[i].split("=");
         $_GET[decodeURIComponent(temp[0])] = decodeURIComponent(temp[1]);
     }
-    console.log($_GET);
+    // console.log($_GET);
     $.ajax({
         url: "ajax.php",
         type: "POST",
@@ -18,7 +18,7 @@ function loadStartTimes(){
             $.each(response,function(index){
                 // console.log(response[index].startTime%1);
                 if ((response[index].startTime)%1 != 0){
-                    console.log(response[index].startTime);
+                    // console.log(response[index].startTime);
                     var hour = response[index].startTime - .5;
                     time = hour + ":30 AM"; 
                 } 
@@ -63,17 +63,61 @@ $(document).ready(function(){
    loadStartTimes();
    
     // $('#startTime option[value="4"]').hide()   
-    var length = $('#startTime option').length;
-    length--;
     
-    if (length != 1 || length != 0){
-        console.log("here");
-        while (length != 0){
-            if ($('startTime').val() == length){
-                $('#duration option[value="'+length+'"]').hide();
+
+
+    
+    // if (length != 1 || length != 0){
+    //     console.log("here");
+    //     while (length != 0){
+    //         if ($('startTime').val() == length){
+    //             $('#duration option[value="'+length+'"]').hide();
+    //         }
+    //     }
+    // }
+    
+    $('#startTime').on("change", function(){
+        var length = $('#duration option').length;
+        // length--;
+        console.log(length);
+        var val = $('#startTime').val();
+        if (length != 1 || length != 0){
+            console.log("val: " + val);
+            if (val > 1){
+                // console.log(length);
+                var count = 0;
+                var count2 = 0;
+                var numEltsToShow = length - val;
+                var numEltsToHide = (length - 1) - numEltsToShow;
+                console.log("numtohide: " + numEltsToHide);
+                while (count < numEltsToHide){
+                    console.log("length: " + length);
+                    console.log("count: " + count);
+                    
+                    var hide = length - count - 1;
+                    console.log("hide: "+ hide);
+                    $('#duration option[value="'+hide+'"]').hide();
+                    count++;
+                    
+                }
+                while (count2 < numEltsToShow){
+                    var showVal = count2 + 1;
+                    $('#duration option[value="'+showVal+'"]').show();
+                    count2++;
+                }
+            }
+            else{
+                var c = 0;
+                while (c < (length - 1)){
+                    var show = c + 1;
+                    $('#duration option[value="'+show+'"]').show();
+                    c++;
+                }
             }
         }
-    }
+        
+    });
+    
     
    $('#submit').click(function(e){
        e.preventDefault();
