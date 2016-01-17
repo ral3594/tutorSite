@@ -87,7 +87,7 @@
                     <label>What class do you need help with? </label>
                     <select class="form-control" id="classOption" required data-validation-required-message="Please enter your phone number.">
                         <option selected value = "0"> Choose A Class </option>
-                        <option value = "250"> Stats 250 </option>
+                        <option value = "250"> STATS 250 </option>
                         <option value = "183"> EECS 183 </option>
                         <option value = "280"> EECS 280 </option>
                         <option value = "101"> ENGR 101 </option>
@@ -119,6 +119,13 @@
                 <div class="controls">
                     <label>Email Address:</label>
                     <input type="email" class="form-control" id="email" required data-validation-required-message="Please enter your email address.">
+                </div>
+            </div>
+            
+            <div class="control-group form-group">
+                <div class="controls">
+                    <label>Phone Number:</label>
+                    <input type="phone" class="form-control" id="phone" required data-validation-required-message="Please enter your phone number.">
                 </div>
             </div>
 
