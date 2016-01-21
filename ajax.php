@@ -101,6 +101,23 @@
             echo json_encode("failure");
         }
     }
+    
+    if ($_POST['action'] == "putInAppt"){
+        $start = $_POST['startTime'];
+        $month = $_POST['month'];
+        $day = $_POST['day'];
+        $year = $_POST['year'];
+        $duration = $_POST['duration'];
+        $numHHrs = $duration/.5;
+        $arrTimes = array();
+        $time = $start;
+        while ($numHHrs < 0){
+            array_push($arrTimes, $time);
+            $numHHrs--;
+            $time+=.5;
+        }
+        echo json_encode($arrTimes);
+    }
 ?>
 
 

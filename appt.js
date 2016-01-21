@@ -82,22 +82,8 @@ function loadStartTimes(){
 }
 
 $(document).ready(function(){
-   loadStartTimes();
+    loadStartTimes();
    
-    // $('#startTime option[value="4"]').hide()   
-    
-
-
-    
-    // if (length != 1 || length != 0){
-    //     console.log("here");
-    //     while (length != 0){
-    //         if ($('startTime').val() == length){
-    //             $('#duration option[value="'+length+'"]').hide();
-    //         }
-    //     }
-    // }
-    
     $('#startTime').on("change", function(){
         var length = $('#duration option').length;
         // length--;
@@ -150,6 +136,68 @@ $(document).ready(function(){
        else{
            alert('valid email');
        }
+       
+        //Start Time    
+       var start = $('#startTime option:selected').text();
+       if (start.indexOf('PM') > 0 ){
+            start = start.replace("PM", "");
+            start = start.trim();
+            if (start.indexOf(':') > 0){
+                start = parseInt(start);
+                start += 12.5;
+            }
+            else{
+                start = parseInt(start);
+                start += 12;
+            }
+       }
+       else{
+          start = start.trim();
+          if (start.indexOf(':') > 0){
+              start = parseInt(start);
+              start+=.5;
+          }
+          else{
+              start = parseInt(start);
+          }
+       }
+       start = start.toString();
+       
+       //Date
+       var date = $('#dateDisplay').text();
+       date = date.trim();
+       date = new Date(date);
+       var month = date.getMonth() + 1;
+       month = month.toString();
+       var day = date.getDate();
+       day = day.toString();
+       var year = date.getFullYear();
+       year = year.toString();
+       
+       //Duration
+       var lot = $('#duration option:selected').text();
+       if (lot.indexOf("hour") > 0){
+           lot = lot.replace("hour", "");
+           lot = lot.trim();
+       }
+       else if (lot.indexOf("hours") > 0){
+           lot = lot.replace("hours", "");
+           lot = lot.trim();
+       }
+       
+        $.ajax({
+            url: "ajax.php",
+            type: "POST",
+            data: "action=putInAppt&startTime=" + start + "&month=" + month + "&day=" + day +"&year="+year+"&duration="+lot,
+            dataType: "json",
+            success: function (response){
+                // alert("Thank you! Your appointment has been scheduled.");
+                alert(response);
+            },
+            error: function(){
+                alert("Sorry, your request could not be processed at this time. Please try again later.");
+            }
+        });
    })
    
    
