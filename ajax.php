@@ -111,7 +111,7 @@
         $numHHrs = $duration/.5;
         $arrTimes = array();
         $time = $start;
-        while ($numHHrs < 0){
+        while ($numHHrs > 0){
             array_push($arrTimes, $time);
             $numHHrs--;
             $time+=.5;
