@@ -77,7 +77,7 @@
         $monthNum = $row['id'];
         
         
-        $sql = "SELECT timeHours FROM availability WHERE yr = " . $year . " AND monthNum = " . $monthNum . " AND dayNum = " . $day; 
+        $sql = "SELECT timeHours FROM availability WHERE yr = " . $year . " AND monthNum = " . $monthNum . " AND dayNum = " . $day . " AND appt = 0;"; 
         
         $result = $db->query($sql);
         
@@ -103,6 +103,13 @@
     }
     
     if ($_POST['action'] == "putInAppt"){
+        
+        $servername = getenv('IP');
+        $username = getenv('C9_USER');
+        $password = "";
+        $database = "Tutor";
+        $dbport = 3306;
+        
         $start = $_POST['startTime'];
         $month = $_POST['month'];
         $day = $_POST['day'];
@@ -111,12 +118,28 @@
         $numHHrs = $duration/.5;
         $arrTimes = array();
         $time = $start;
-        while ($numHHrs > 0){
+        while ($numHHrs >= 0){
             array_push($arrTimes, $time);
             $numHHrs--;
             $time+=.5;
         }
-        echo json_encode($arrTimes);
+        
+        
+        $arrLength = count($arrTimes) - 2;
+        while ($arrLength >= 0){
+            $sql = "UPDATE availability SET appt = 1 WHERE monthNum = " . $month . " AND dayNum = " . $day . " and yr = " . $year . " AND timeHours = " . $arrTimes[$arrLength] . ";";
+            $db = new mysqli($servername, $username, $password, $database, $dbport);
+        
+            $result = $db->query($sql);
+            // $row = $result-> fetch_assoc();
+            
+            if (!$result){
+                echo json_encode("ERROR");
+            }
+            
+            $arrLength--;
+        }
+        echo json_encode("SUCCESS");
     }
 ?>
 
